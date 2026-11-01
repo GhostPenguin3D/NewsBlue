@@ -16,17 +16,29 @@
 
 ## Deploy บน Cloudflare Pages
 
-ต้องมี Node.js และบัญชี Cloudflare ที่ใช้ Wrangler ได้
+Pages project `newsblue-guide` และ D1 database `newsblue-questions` ถูกสร้างแล้ว; เว็บอยู่ที่ [newsblue-guide.pages.dev](https://newsblue-guide.pages.dev/). D1 ID และ binding `DB` อยู่ใน `wrangler.toml` และ schema ทั้งสาม migration ถูกนำไปใช้กับ remote database แล้ว
 
-1. สร้างฐานข้อมูล: `npx wrangler d1 create newsblue-questions`
-2. นำ `database_id` จากผลลัพธ์ไปแทนค่า placeholder `00000000-0000-0000-0000-000000000000` ใน `wrangler.toml`
-3. สร้างตารางบนฐานข้อมูล remote: `npx wrangler d1 execute newsblue-questions --remote --file=./migrations/0001_init.sql`
-4. เพิ่มตารางคำตอบแยกตามกระทู้: `npx wrangler d1 execute newsblue-questions --remote --file=./migrations/0002_answers.sql`
-5. สร้างตารางบทความ: `npx wrangler d1 execute newsblue-questions --remote --file=./migrations/0003_articles.sql`
-6. ตั้ง secret ผู้ดูแล: `npx wrangler pages secret put ARTICLE_ADMIN_TOKEN --project-name=newsblue-guide` แล้วกรอกรหัสสุ่มของคุณใน terminal เมื่อ Wrangler ถาม ห้าม commit หรือแชร์ค่านี้
-7. Deploy จากโฟลเดอร์โปรเจกต์: `npx wrangler pages deploy public --project-name=newsblue-guide`
+หากตั้งค่า Pages ผ่าน Git integration ให้เลือก framework preset `None`, เว้น Build command ว่าง และตั้ง Build output directory เป็น `public` ห้ามใช้ `npx wrangler deploy` เพราะเป็นคำสั่ง Workers ไม่ใช่ Pages
 
-ผูก D1 binding ชื่อ `DB` กับ Pages project หากตั้งค่า binding ผ่าน Cloudflare Dashboard แทน Wrangler config ให้ใช้ชื่อเดียวกัน แล้ว deploy ใหม่
+การ deploy จาก terminal ใช้คำสั่งนี้:
+
+```bash
+npx wrangler@4 pages deploy public --project-name=newsblue-guide
+```
+
+ถ้าต้องสร้าง environment ใหม่ ให้สร้าง D1 ด้วย `npx wrangler@4 d1 create newsblue-questions`, นำ ID ที่ได้ใส่ใน `wrangler.toml` แล้วรัน migration ตามลำดับ:
+
+```bash
+npx wrangler@4 d1 execute newsblue-questions --remote --file=./migrations/0001_init.sql
+npx wrangler@4 d1 execute newsblue-questions --remote --file=./migrations/0002_answers.sql
+npx wrangler@4 d1 execute newsblue-questions --remote --file=./migrations/0003_articles.sql
+```
+
+### เปิดใช้การเพิ่ม/ลบบทความ
+
+ยังต้องตั้ง `ARTICLE_ADMIN_TOKEN` ก่อนใช้แผงจัดการบทความ: ไปที่ Cloudflare Dashboard → **Workers & Pages** → `newsblue-guide` → **Settings → Variables and Secrets** → เพิ่ม secret ชื่อ `ARTICLE_ADMIN_TOKEN` และกำหนดรหัสลับที่คุณเลือกเอง ห้าม commit หรือส่งรหัสนี้ในแชต แล้ว deploy ใหม่เพื่อให้ secret มีผลกับ deployment
+
+ถ้าใช้ Wrangler ในเครื่องแทน Dashboard ให้ใช้ `npx wrangler@4 pages secret put ARTICLE_ADMIN_TOKEN --project-name=newsblue-guide` และพิมพ์ secret ใน terminal prompt เท่านั้น
 
 สำหรับทดสอบในเครื่องให้สร้างตาราง local ตามลำดับด้วย `npx wrangler d1 execute newsblue-questions --local --file=./migrations/0001_init.sql`, `npx wrangler d1 execute newsblue-questions --local --file=./migrations/0002_answers.sql` และ `npx wrangler d1 execute newsblue-questions --local --file=./migrations/0003_articles.sql` แล้วรัน `npx wrangler pages dev public`
 
