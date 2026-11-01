@@ -1,0 +1,13 @@
+CREATE TABLE IF NOT EXISTS questions (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL CHECK(length(name) <= 40),
+  body TEXT NOT NULL CHECK(length(body) BETWEEN 5 AND 240),
+  created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE INDEX IF NOT EXISTS questions_created_at_idx ON questions(id DESC);
+
+CREATE TABLE IF NOT EXISTS post_limits (
+  ip_hash TEXT PRIMARY KEY,
+  last_post INTEGER NOT NULL
+);

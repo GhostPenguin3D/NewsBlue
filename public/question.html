@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eaf5ff">
+  <meta name="description" content="อ่านและตอบคำถามในชุมชนเตรียมตัวขึ้นมัธยมปลาย">
+  <title>กระทู้ถามตอบ | ไปต่อ ม.ปลาย</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Kanit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css"><script defer src="https://unpkg.com/lucide@latest"></script><script defer src="./assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="./index.html"><span class="brand-mark"><i data-lucide="navigation"></i></span><span>ไปต่อ <em>ม.ปลาย</em></span></a><button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false"><i data-lucide="menu"></i></button><nav class="nav-links" aria-label="เมนูหลัก"><a href="./index.html">หน้าแรก</a><a href="./schools.html">ค้นหาโรงเรียน</a><a href="./articles.html">บทความ</a><a class="active" href="./community.html">ชุมชนถามตอบ</a><a href="./sheets.html">ชีทสรุป</a></nav><a class="nav-cta" href="./community.html"><i data-lucide="arrow-left"></i> กลับชุมชน</a></div></header>
+  <main><section class="page-hero"><div class="wrap"><span class="eyebrow"><i></i> COMMUNITY THREAD</span><h1>อ่านและตอบกระทู้</h1><p>คำตอบจะอยู่ใต้คำถามนี้โดยเฉพาะ</p><div class="breadcrumb"><a href="./index.html">หน้าแรก</a><i data-lucide="chevron-right"></i><a href="./community.html">ชุมชนถามตอบ</a><i data-lucide="chevron-right"></i><span>กระทู้</span></div></div></section>
+    <section class="section"><div class="wrap thread-layout"><div class="thread-main"><article class="thread-question" id="thread-question"><p class="thread-status" id="thread-status" aria-live="polite">กำลังโหลดกระทู้</p></article><section class="answers-section"><div class="answers-heading"><h2>คำตอบ</h2><span id="answer-count">0 คำตอบ</span></div><div class="answer-list" id="answer-list" aria-live="polite"></div></section></div>
+      <aside class="question-form-panel"><span class="iconbox green"><i data-lucide="message-circle-reply"></i></span><h2>เขียนคำตอบ</h2><p>ช่วยกันตอบอย่างสุภาพ และอย่าใส่ข้อมูลส่วนตัว</p><form id="answer-form"><label for="answer-name">ชื่อเล่น <span>(ไม่บังคับ)</span></label><input class="field" id="answer-name" type="text" maxlength="40" placeholder="เช่น พี่เมย์"><label for="answer-text">คำตอบ <span>(ไม่เกิน 240 ตัวอักษร)</span></label><textarea class="field" id="answer-text" required maxlength="240" placeholder="แบ่งปันสิ่งที่รู้หรือประสบการณ์ของคุณ"></textarea><label class="honeypot" aria-hidden="true">เว็บไซต์<input name="website" tabindex="-1" autocomplete="off"></label><button class="button-primary" type="submit"><i data-lucide="send"></i> ส่งคำตอบ</button><p class="form-hint">คำตอบจะแสดงในกระทู้นี้และมองเห็นได้สาธารณะ</p></form></aside>
+    </div></section></main>
+  <footer class="footer"><div class="wrap footer-row"><a class="brand" href="./index.html"><span class="brand-mark"><i data-lucide="navigation"></i></span><span>ไปต่อ <em>ม.ปลาย</em></span></a><span>โปรดแบ่งปันอย่างสุภาพและไม่เปิดเผยข้อมูลส่วนตัว</span><span>© 2026 ไปต่อ ม.ปลาย</span></div></footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

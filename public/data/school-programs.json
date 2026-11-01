@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "verifiedSchoolCount": 1,
+    "note": "Only programs backed by an official school source are listed. Missing entries mean not yet verified.",
+    "lastChecked": "2026-11-01"
+  },
+  "bySchoolId": {
+    "10012017": {
+      "schoolName": "เตรียมอุดมศึกษา",
+      "academicYear": 2569,
+      "sourceTitle": "ประกาศโรงเรียนเตรียมอุดมศึกษา เรื่อง การรับนักเรียนชั้นมัธยมศึกษาปีที่ 4 ปีการศึกษา 2569",
+      "sourceDate": "2026-01-30",
+      "sourceUrl": "https://triamudom.ac.th/website/images/2569/01/690130STD2569.pdf",
+      "programs": [
+        { "name": "วิทยาศาสตร์ - คณิตศาสตร์", "seats": 1000 },
+        { "name": "ภาษา - คณิตศาสตร์", "seats": 120 },
+        { "name": "ภาษา - ฝรั่งเศส", "seats": 80 },
+        { "name": "ภาษา - เยอรมัน", "seats": 80 },
+        { "name": "ภาษา - ญี่ปุ่น", "seats": 80 },
+        { "name": "ภาษา - จีน", "seats": 80 },
+        { "name": "ภาษา - สเปน", "seats": 40 },
+        { "name": "ภาษา - เกาหลี", "seats": 40 }
+      ]
+    }
+  }
+}

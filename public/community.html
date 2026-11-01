@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#eaf5ff">
+  <meta name="description" content="ชุมชนถามตอบสำหรับนักเรียนที่กำลังเตรียมตัวขึ้นมัธยมปลาย ตั้งคำถามและแบ่งปันประสบการณ์">
+  <title>ชุมชนถามตอบ | ไปต่อ ม.ปลาย</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Kanit:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/style.css"><script defer src="https://unpkg.com/lucide@latest"></script><script defer src="./assets/app.js"></script>
+</head>
+<body>
+  <header class="topbar"><div class="wrap nav"><a class="brand" href="./index.html"><span class="brand-mark"><i data-lucide="navigation"></i></span><span>ไปต่อ <em>ม.ปลาย</em></span></a><button class="menu-toggle" aria-label="เปิดเมนู" aria-expanded="false"><i data-lucide="menu"></i></button><nav class="nav-links" aria-label="เมนูหลัก"><a href="./index.html">หน้าแรก</a><a href="./schools.html">ค้นหาโรงเรียน</a><a href="./articles.html">บทความ</a><a class="active" href="./community.html">ชุมชนถามตอบ</a><a href="./sheets.html">ชีทสรุป</a></nav><a class="nav-cta" href="#ask-form">ตั้งคำถาม <i data-lucide="circle-help"></i></a></div></header>
+  <main>
+    <section class="page-hero"><div class="wrap"><span class="eyebrow"><i></i> COMMUNITY &amp; Q&amp;A</span><h1>ไม่ต้องเก็บทุกคำถามไว้คนเดียว</h1><p>ถามเรื่องการสอบ การเลือกแผน หรือชีวิต ม.ปลาย แล้วชวนกันแบ่งปันคำตอบ</p><div class="breadcrumb"><a href="./index.html">หน้าแรก</a><i data-lucide="chevron-right"></i><span>ชุมชนถามตอบ</span></div></div></section>
+    <section class="section"><div class="wrap community-layout"><div class="community-main"><div class="community-toolbar"><div><h2>คำถามจากชุมชน</h2><p id="question-status" aria-live="polite">กำลังโหลดคำถาม</p></div><button class="button-secondary" id="refresh-questions" type="button"><i data-lucide="refresh-cw"></i> โหลดใหม่</button></div><div class="question-list question-list-page" id="question-items" aria-live="polite"></div></div>
+      <aside class="question-form-panel" id="ask-form"><span class="iconbox orange"><i data-lucide="message-circle-question"></i></span><h2>ตั้งคำถาม</h2><p>อย่าใส่ข้อมูลส่วนตัว เช่น เบอร์โทร ที่อยู่ หรือชื่อ-นามสกุล</p><form id="question-form"><label for="question-name">ชื่อเล่น <span>(ไม่บังคับ)</span></label><input class="field" id="question-name" type="text" maxlength="40" placeholder="เช่น น้องฟ้า"><label for="question-text">คำถาม <span>(ไม่เกิน 240 ตัวอักษร)</span></label><textarea class="field" id="question-text" required maxlength="240" placeholder="อยากปรึกษาเรื่องอะไร?"></textarea><label class="honeypot" aria-hidden="true">เว็บไซต์<input name="website" tabindex="-1" autocomplete="off"></label><button class="button-primary" type="submit"><i data-lucide="send"></i> ส่งคำถาม</button><p class="form-hint">การส่งคำถามแสดงว่าคุณยินยอมให้ข้อความปรากฏต่อสาธารณะในชุมชน</p></form></aside>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="wrap footer-row"><a class="brand" href="./index.html"><span class="brand-mark"><i data-lucide="navigation"></i></span><span>ไปต่อ <em>ม.ปลาย</em></span></a><span>โปรดแบ่งปันอย่างสุภาพและไม่เปิดเผยข้อมูลส่วนตัว</span><span>© 2026 ไปต่อ ม.ปลาย</span></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
